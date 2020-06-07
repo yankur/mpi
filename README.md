@@ -1,0 +1,2 @@
+# mpi
+mpi lab c++
