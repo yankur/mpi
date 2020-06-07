@@ -1,0 +1,10 @@
+matrix_file="../data/matrix.txt"
+delta_t=6
+delta_x=6
+delta_y=6
+density=3
+temp_capacity=1000000
+temp_conduct=1000000
+save_interval=10
+width=300
+height=300

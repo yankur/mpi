@@ -1,0 +1,19 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
+PROJECT(mpi)
+
+SET(CMAKE_CXX_STANDARD 17)
+#SET(CMAKE_CXX_FLAGS -pthread)
+#SET(CMAKE_CXX_FLAGS -lboost_filesystem)
+#SET(CMAKE_CXX_FLAGS -lboost_system)
+
+FIND_PACKAGE( MPI REQUIRED )
+INCLUDE_DIRECTORIES( SYSTEM ${MPI_INCLUDE_PATH} )
+
+ADD_EXECUTABLE (mpi
+        src/main.cpp
+        src/read_config.cpp
+        src/read_config.h src/image_process.cpp src/image_process.h src/update.cpp src/update.h)
+
+TARGET_INCLUDE_DIRECTORIES(mpi PRIVATE ${MPI_CXX_INCLUDE_PATH})
+TARGET_COMPILE_OPTIONS(mpi PRIVATE ${MPI_CXX_COMPILE_FLAGS})
+TARGET_LINK_LIBRARIES(mpi ${MPI_CXX_LIBRARIES} ${MPI_CXX_LINK_FLAGS})
